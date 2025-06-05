@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 st.set_page_config(page_title="MBTI Predictor", layout="centered")
-st.markdown("""# Project Vibe
+st.markdown("""# Project Vibe!
 ## 🧠 MBTI Tweet Classifier
     """)
 
