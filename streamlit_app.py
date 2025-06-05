@@ -12,6 +12,6 @@ if st.button("Predict MBTI type"):
     if tweet:
         response = requests.get("https://vibe-986836536410.europe-west1.run.app/predict", params={"tweet": tweet})
         result = response.json()
-        st.success(f"Prediction: Your personality trait is {str(result['MBTI personality result']).capitalize()}")
+        st.success(f"Prediction: Your personality trait is {str(result['MBTI personality result']).upper()}")
     else:
         st.warning("Please enter a tweet first.")
