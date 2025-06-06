@@ -3,22 +3,22 @@ import requests
 
 # Compatibility dictionary
 compatibility_map = {
-    "INTJ": ["ENFP", "INFP"],
-    "INTP": ["ENFJ", "INFJ"],
-    "ENTJ": ["INFP", "ISFP"],
-    "ENTP": ["INFJ", "ISFJ"],
-    "INFJ": ["ENFP", "ENTP"],
-    "INFP": ["ENFJ", "ENTJ"],
-    "ENFJ": ["INFP", "ISFP"],
-    "ENFP": ["INFJ", "INTJ"],
-    "ISTJ": ["ESFP", "ISFJ"],
-    "ISFJ": ["ESTP", "ESFP"],
-    "ESTJ": ["ISFP", "INFP"],
-    "ESFJ": ["ISFP", "ISTP"],
-    "ISTP": ["ESFJ", "ENFJ"],
-    "ISFP": ["ESTJ", "ESFJ"],
-    "ESTP": ["ISFJ", "ISTJ"],
-    "ESFP": ["ISTJ", "ISFJ"],
+    "INTJ": ["ENFP", "INFP","INTJ"],
+    "INTP": ["ENFJ", "INFJ","INTP"],
+    "ENTJ": ["INFP", "ISFP","ENTJ"],
+    "ENTP": ["INFJ", "ISFJ","ENTP"],
+    "INFJ": ["ENFP", "ENTP","INFJ"],
+    "INFP": ["ENFJ", "ENTJ","INFP"],
+    "ENFJ": ["INFP", "ISFP","ENFJ"],
+    "ENFP": ["INFJ", "INTJ","ENFP"],
+    "ISTJ": ["ESFP", "ISFJ","ISTJ"],
+    "ISFJ": ["ESTP", "ESFP","ISFJ"],
+    "ESTJ": ["ISFP", "INFP","ESTJ"],
+    "ESFJ": ["ISFP", "ISTP","ESFJ"],
+    "ISTP": ["ESFJ", "ENFJ","ISTP"],
+    "ISFP": ["ESTJ", "ESFJ","ISFP"],
+    "ESTP": ["ISFJ", "ISTJ","ESTP"],
+    "ESFP": ["ISTJ", "ISFJ","ESFP"],
 }
 
 # Page setup
