@@ -4,12 +4,39 @@ import streamlit as st
 compatibility_map = {
     "INTJ": ["ENFP", "INFP", "INTJ"],
     "INTP": ["ENFJ", "INFJ", "INTP"],
-    # ... (keep full dictionary here)
+    "ENTJ": ["INFP", "ISFP", "ENTJ"],
+    "ENTP": ["INFJ", "ISFJ", "ENTP"],
+    "INFJ": ["ENFP", "ENTP", "INFJ"],
+    "INFP": ["ENFJ", "ENTJ", "INFP"],
+    "ENFJ": ["INFP", "ISFP", "ENFJ"],
+    "ENFP": ["INFJ", "INTJ", "ENFP"],
+    "ISTJ": ["ESFP", "ISFJ", "ISTJ"],
+    "ISFJ": ["ESTP", "ESFP", "ISFJ"],
+    "ESTJ": ["ISFP", "INFP", "ESTJ"],
+    "ESFJ": ["ISFP", "ISTP", "ESFJ"],
+    "ISTP": ["ESFJ", "ENFJ", "ISTP"],
+    "ISFP": ["ESTJ", "ESFJ", "ISFP"],
+    "ESTP": ["ISFJ", "ISTJ", "ESTP"],
+    "ESFP": ["ISTJ", "ISFJ", "ESFP"],
 }
 
 mbti_description_map = {
     "INTJ": "Strategic, analytical, independent",
-    # ... (full descriptions)
+    "INTP": "Logical, curious, inventive",
+    "ENTJ": "Bold, confident, strategic leaders",
+    "ENTP": "Quick-witted, enthusiastic, inventive",
+    "INFJ": "Idealistic, compassionate, deep thinkers",
+    "INFP": "Empathetic, imaginative, values-driven",
+    "ENFJ": "Charismatic, altruistic, team-focused",
+    "ENFP": "Energetic, imaginative, warm",
+    "ISTJ": "Responsible, sincere, logical",
+    "ISFJ": "Loyal, practical, nurturing",
+    "ESTJ": "Efficient, organized, traditional",
+    "ESFJ": "Sociable, caring, cooperative",
+    "ISTP": "Independent, adaptable, practical",
+    "ISFP": "Gentle, flexible, artistic",
+    "ESTP": "Energetic, pragmatic, spontaneous",
+    "ESFP": "Playful, enthusiastic, friendly",
 }
 
 # Page config
@@ -27,13 +54,12 @@ else:
     st.subheader("Your Results")
     col1, col2 = st.columns(2)
     with col1:
-        st.success(f"**Tweet 1:** {mbti_1}")
+        st.success(f"**Person 1:** {mbti_1}")
         st.caption(mbti_description_map.get(mbti_1, ""))
     with col2:
-        st.success(f"**Tweet 2:** {mbti_2}")
+        st.success(f"**Person 2:** {mbti_2}")
         st.caption(mbti_description_map.get(mbti_2, ""))
 
-    # Compatibility check
     compatible = mbti_2 in compatibility_map.get(mbti_1, [])
     st.subheader("🔗 Compatibility Score")
     if compatible:

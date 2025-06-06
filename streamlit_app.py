@@ -1,18 +1,23 @@
 import streamlit as st
 import requests
-import urllib.parse
 
 # Page config
 st.set_page_config(page_title="MBTI Predictor", layout="centered")
 st.title("🧠 Project Vibe: MBTI Tweet Classifier")
-st.markdown("Paste **two tweets** and we'll predict the personalities.")
+st.markdown("Paste **two tweets** from different people and we'll predict their personalities.")
+
+# Initialize session state
+if "tweet1" not in st.session_state:
+    st.session_state["tweet1"] = ""
+if "tweet2" not in st.session_state:
+    st.session_state["tweet2"] = ""
 
 # Inputs
 col1, col2 = st.columns(2)
 with col1:
-    tweet1 = st.text_area("Tweet from one person", key="tweet1")
+    tweet1 = st.text_area("Tweet from one person", value=st.session_state["tweet1"], key="input1")
 with col2:
-    tweet2 = st.text_area("Tweet from another person", key="tweet2")
+    tweet2 = st.text_area("Tweet from another person", value=st.session_state["tweet2"], key="input2")
 
 if st.button("Get MBTI Results"):
     if tweet1 and tweet2:
@@ -23,6 +28,7 @@ if st.button("Get MBTI Results"):
             mbti_1 = res1["MBTI personality result"].upper()
             mbti_2 = res2["MBTI personality result"].upper()
 
+            # Store everything in session state
             st.session_state["tweet1"] = tweet1
             st.session_state["tweet2"] = tweet2
             st.session_state["mbti_1"] = mbti_1
@@ -31,9 +37,9 @@ if st.button("Get MBTI Results"):
             st.subheader("🧠 Predictions")
             col1, col2 = st.columns(2)
             with col1:
-                st.success(f"**Tweet 1:** {mbti_1}")
+                st.success(f"**Tweet from Person 1:** {mbti_1}")
             with col2:
-                st.success(f"**Tweet 2:** {mbti_2}")
+                st.success(f"**Tweet from Person 2:** {mbti_2}")
 
             st.markdown("---")
             st.page_link("pages/1_🤝_Compatibility_Results.py", label="See Compatibility →")
