@@ -10,9 +10,9 @@ st.markdown("Paste **two tweets** and we'll predict the personalities.")
 # Inputs
 col1, col2 = st.columns(2)
 with col1:
-    tweet1 = st.text_area("Tweet 1")
+    tweet1 = st.text_area("Tweet from one person", key="tweet1")
 with col2:
-    tweet2 = st.text_area("Tweet 2")
+    tweet2 = st.text_area("Tweet from another person", key="tweet2")
 
 if st.button("Get MBTI Results"):
     if tweet1 and tweet2:
