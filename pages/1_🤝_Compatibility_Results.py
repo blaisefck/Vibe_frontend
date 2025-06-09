@@ -54,11 +54,12 @@ st.markdown(
         background-position: center;
     }
     .opaque-box {
-        background-color: rgba(255, 255, 255, 0.85);
-        padding: 1.5rem;
-        border-radius: 15px;
-        margin-bottom: 1.5rem;
-    }
+    background-color: rgba(255, 255, 255, 0.85);
+    color: black;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+}
     </style>
     """,
     unsafe_allow_html=True
