@@ -16,21 +16,18 @@ st.markdown(
     background-position: center;
 }
 
-/* Make all text black */
-html, body, .stApp, .opaque-box, h1, h2, h3, h4, h5, h6, p, span, div, a, .css-1v0mbdj {
-    color: black !important;
-}
-
-/* Optional: darker link color if needed */
-a {
-    color: #00008B !important;
-}
-
+/* Style for dark opaque content boxes */
 .opaque-box {
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(0, 0, 0, 0.75);
     padding: 1.5rem;
     border-radius: 15px;
     margin-bottom: 1.5rem;
+    color: white !important;
+}
+
+/* Force white text for all content */
+html, body, .stApp, .opaque-box, h1, h2, h3, h4, h5, h6, p, span, div, a {
+    color: white !important;
 }
 </style>
     """,
