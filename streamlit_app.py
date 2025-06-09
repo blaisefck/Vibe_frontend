@@ -3,6 +3,7 @@ import requests
 
 st.set_page_config(page_title="MBTI Predictor", layout="centered")
 
+# Inject background image and opaque box style
 st.markdown(
     """
     <style>
@@ -14,15 +15,20 @@ st.markdown(
         background-attachment: fixed;
         background-position: center;
     }
+    .opaque-box {
+        background-color: rgba(255, 255, 255, 0.85);
+        padding: 1.5rem;
+        border-radius: 15px;
+        margin-bottom: 1.5rem;
+    }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Page config
-
-st.title("🧠 Project Vibe: MBTI Tweet Classifier")
-st.markdown("Paste **two tweets** from different people and we'll predict their personalities.")
+# Title & Description
+st.markdown('<div class="opaque-box"><h1>🧠 Project Vibe: MBTI Tweet Classifier</h1></div>', unsafe_allow_html=True)
+st.markdown('<div class="opaque-box">Paste <b>two tweets</b> from different people and we\'ll predict their personalities.</div>', unsafe_allow_html=True)
 
 # Initialize session state
 if "tweet1" not in st.session_state:
@@ -46,18 +52,18 @@ if st.button("Get MBTI Results"):
             mbti_1 = res1["MBTI personality result"].upper()
             mbti_2 = res2["MBTI personality result"].upper()
 
-            # Store everything in session state
             st.session_state["tweet1"] = tweet1
             st.session_state["tweet2"] = tweet2
             st.session_state["mbti_1"] = mbti_1
             st.session_state["mbti_2"] = mbti_2
 
-            st.subheader("🧠 Predictions")
+            st.markdown('<div class="opaque-box"><h3>🧠 Predictions</h3>', unsafe_allow_html=True)
             col1, col2 = st.columns(2)
             with col1:
                 st.success(f"**Tweet from Person 1:** {mbti_1}")
             with col2:
                 st.success(f"**Tweet from Person 2:** {mbti_2}")
+            st.markdown('</div>', unsafe_allow_html=True)
 
             st.markdown("---")
             st.page_link("pages/1_🤝_Compatibility_Results.py", label="See Compatibility →")

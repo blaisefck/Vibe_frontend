@@ -39,9 +39,9 @@ mbti_description_map = {
     "ESFP": "Playful, enthusiastic, friendly",
 }
 
-# Page config
 st.set_page_config(page_title="Compatibility Results", layout="centered")
 
+# Background and box styling
 st.markdown(
     """
     <style>
@@ -53,15 +53,21 @@ st.markdown(
         background-attachment: fixed;
         background-position: center;
     }
+    .opaque-box {
+        background-color: rgba(255, 255, 255, 0.85);
+        padding: 1.5rem;
+        border-radius: 15px;
+        margin-bottom: 1.5rem;
+    }
     </style>
     """,
     unsafe_allow_html=True
 )
 
+# Title
+st.markdown('<div class="opaque-box"><h1>🤝 MBTI Compatibility Results</h1></div>', unsafe_allow_html=True)
 
-st.title("🤝 MBTI Compatibility Results")
-
-# Retrieve session data
+# Get session state
 mbti_1 = st.session_state.get("mbti_1")
 mbti_2 = st.session_state.get("mbti_2")
 
@@ -69,6 +75,7 @@ if not mbti_1 or not mbti_2:
     st.warning("Please start from the main page to enter tweets.")
     st.page_link("streamlit_app.py", label="← Go to Main Page")
 else:
+    st.markdown('<div class="opaque-box">', unsafe_allow_html=True)
     st.subheader("Your Results")
     col1, col2 = st.columns(2)
     with col1:
@@ -77,20 +84,19 @@ else:
     with col2:
         st.success(f"**Person 2:** {mbti_2}")
         st.caption(mbti_description_map.get(mbti_2, ""))
+    st.markdown('</div>', unsafe_allow_html=True)
 
+    st.markdown('<div class="opaque-box">', unsafe_allow_html=True)
     compatible = mbti_2 in compatibility_map.get(mbti_1, [])
     st.subheader("🔗 Compatibility Score")
     if compatible:
         st.progress(100)
         st.success("✅ These personalities are **highly compatible**!")
-        st.markdown(
-            "They're likely to share complementary traits that support mutual growth and deep understanding."
-        )
+        st.markdown("They're likely to share complementary traits that support mutual growth and deep understanding.")
     else:
         st.progress(30)
         st.warning("⚠️ These personalities might **clash or require effort**.")
-        st.markdown(
-            "While differences can enrich relationships, communication and understanding will be key for alignment."
-        )
+        st.markdown("While differences can enrich relationships, communication and understanding will be key for alignment.")
+    st.markdown('</div>', unsafe_allow_html=True)
 
     st.page_link("streamlit_app.py", label="← Try with different tweets", icon="🔁")
