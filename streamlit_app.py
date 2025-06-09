@@ -34,6 +34,14 @@ st.markdown(
     margin-bottom: 1rem;
 }
 
+.description-caption {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    margin-top: 0.25rem;
+}
+
 /* Force white text for all content */
 html, body, .stApp, .opaque-box, .green-opaque-box, h1, h2, h3, h4, h5, h6, p, span, div, a {
     color: white !important;
