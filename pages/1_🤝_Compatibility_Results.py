@@ -104,7 +104,8 @@ else:
 
     st.markdown('<div class="opaque-box">', unsafe_allow_html=True)
     compatible = mbti_2 in compatibility_map.get(mbti_1, [])
-    st.subheader("🔗 Compatibility Score")
+    # Wrap the subtitle in an opaque-box div for the black background
+    st.markdown('<div class="opaque-box"><h2>🔗 Compatibility Score</h2></div>', unsafe_allow_html=True)
     if compatible:
         st.progress(100)
         st.success("✅ These personalities are **highly compatible**!")
