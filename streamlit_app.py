@@ -42,6 +42,8 @@ st.markdown(
     margin-top: 0.25rem;
 }
 
+
+
 /* Force white text for all content */
 html, body, .stApp, .opaque-box, .green-opaque-box, h1, h2, h3, h4, h5, h6, p, span, div, a {
     color: white !important;

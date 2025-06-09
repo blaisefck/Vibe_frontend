@@ -41,7 +41,6 @@ mbti_description_map = {
 
 st.set_page_config(page_title="Compatibility Results", layout="centered")
 
-# Background and box styling including green and orange opaque boxes
 st.markdown(
     """
 <style>
@@ -63,45 +62,27 @@ st.markdown(
     color: white !important;
 }
 
-.description-caption {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: white !important;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-    margin-top: 0.25rem;
-}
-
-/* Green opaque box for success results */
-.green-opaque-box {
-    background-color: rgba(0, 128, 0, 0.7);
-    padding: 1.2rem;
-    border-radius: 12px;
-    color: white !important;
-    margin-bottom: 1rem;
-}
-
-/* Orange opaque box for warnings */
-.orange-opaque-box {
-    background-color: rgba(255, 140, 0, 0.7);
-    padding: 1.2rem;
-    border-radius: 12px;
-    color: white !important;
+/* Bigger, brighter description text */
+.description-text {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #a2f5ff !important;  /* bright cyan */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.85);
+    margin-top: 0.4rem;
     margin-bottom: 1rem;
 }
 
 /* Force white text for all content */
-html, body, .stApp, .opaque-box, .green-opaque-box, .orange-opaque-box, h1, h2, h3, h4, h5, h6, p, span, div, a {
+html, body, .stApp, .opaque-box, h1, h2, h3, h4, h5, h6, p, span, div, a {
     color: white !important;
 }
 </style>
-    """,
-    unsafe_allow_html=True
+""",
+    unsafe_allow_html=True,
 )
 
-# Title
 st.markdown('<div class="opaque-box"><h1>🤝 MBTI Compatibility Results</h1></div>', unsafe_allow_html=True)
 
-# Get session state
 mbti_1 = st.session_state.get("mbti_1")
 mbti_2 = st.session_state.get("mbti_2")
 
@@ -113,11 +94,12 @@ else:
     st.subheader("Your Results")
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown(f'<div class="green-opaque-box"><b>Person 1:</b> {mbti_1}</div>', unsafe_allow_html=True)
-        st.caption(mbti_description_map.get(mbti_1, ""))
+        st.success(f"**Person 1:** {mbti_1}")
+        # Use the new .description-text class here to show the description bigger and clearer
+        st.markdown(f'<div class="description-text">{mbti_description_map.get(mbti_1, "")}</div>', unsafe_allow_html=True)
     with col2:
-        st.markdown(f'<div class="green-opaque-box"><b>Person 2:</b> {mbti_2}</div>', unsafe_allow_html=True)
-        st.caption(mbti_description_map.get(mbti_2, ""))
+        st.success(f"**Person 2:** {mbti_2}")
+        st.markdown(f'<div class="description-text">{mbti_description_map.get(mbti_2, "")}</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
     st.markdown('<div class="opaque-box">', unsafe_allow_html=True)
@@ -125,11 +107,11 @@ else:
     st.subheader("🔗 Compatibility Score")
     if compatible:
         st.progress(100)
-        st.markdown('<div class="green-opaque-box">✅ These personalities are <b>highly compatible</b>!</div>', unsafe_allow_html=True)
+        st.success("✅ These personalities are **highly compatible**!")
         st.markdown("They're likely to share complementary traits that support mutual growth and deep understanding.")
     else:
         st.progress(30)
-        st.markdown('<div class="orange-opaque-box">⚠️ These personalities might <b>clash or require effort</b>.</div>', unsafe_allow_html=True)
+        st.warning("⚠️ These personalities might **clash or require effort**.")
         st.markdown("While differences can enrich relationships, communication and understanding will be key for alignment.")
     st.markdown('</div>', unsafe_allow_html=True)
 
