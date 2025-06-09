@@ -63,6 +63,14 @@ st.markdown(
     color: white !important;
 }
 
+.description-caption {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    margin-top: 0.25rem;
+}
+
 /* Green opaque box for success results */
 .green-opaque-box {
     background-color: rgba(0, 128, 0, 0.7);
