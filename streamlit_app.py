@@ -8,7 +8,7 @@ st.markdown(
     <style>
     .stApp {
         background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-                          url("https://cdn.herald.kaist.ac.kr/news/photo/202106/20329_20205_213.jpeg");
+                          url("https://daoinsights.com/wp-content/webp-express/webp-images/uploads/2022/04/mbti-types.png.webp");
         background-size: contain;
         background-repeat: no-repeat;
         background-attachment: fixed;

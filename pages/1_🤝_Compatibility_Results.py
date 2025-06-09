@@ -41,6 +41,24 @@ mbti_description_map = {
 
 # Page config
 st.set_page_config(page_title="Compatibility Results", layout="centered")
+
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                          url("https://daoinsights.com/wp-content/webp-express/webp-images/uploads/2022/04/mbti-types.png.webp");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
 st.title("🤝 MBTI Compatibility Results")
 
 # Retrieve session data
