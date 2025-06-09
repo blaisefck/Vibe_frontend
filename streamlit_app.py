@@ -3,7 +3,7 @@ import requests
 
 st.set_page_config(page_title="MBTI Predictor", layout="centered")
 
-# Inject background image and opaque box style
+# Inject background image and opaque box style, plus green opaque box style
 st.markdown(
     """
 <style>
@@ -25,8 +25,17 @@ st.markdown(
     color: white !important;
 }
 
+/* Style for green opaque result boxes */
+.green-opaque-box {
+    background-color: rgba(0, 128, 0, 0.7);
+    padding: 1.2rem;
+    border-radius: 12px;
+    color: white !important;
+    margin-bottom: 1rem;
+}
+
 /* Force white text for all content */
-html, body, .stApp, .opaque-box, h1, h2, h3, h4, h5, h6, p, span, div, a {
+html, body, .stApp, .opaque-box, .green-opaque-box, h1, h2, h3, h4, h5, h6, p, span, div, a {
     color: white !important;
 }
 </style>
@@ -65,13 +74,12 @@ if st.button("Get MBTI Results"):
             st.session_state["mbti_1"] = mbti_1
             st.session_state["mbti_2"] = mbti_2
 
-            st.markdown('<div class="opaque-box"><h3>🧠 Predictions</h3>', unsafe_allow_html=True)
+            st.markdown('<div class="opaque-box"><h3>🧠 Predictions</h3></div>', unsafe_allow_html=True)
             col1, col2 = st.columns(2)
             with col1:
-                st.success(f"**Tweet from Person 1:** {mbti_1}")
+                st.markdown(f'<div class="green-opaque-box"><b>Tweet from Person 1:</b> {mbti_1}</div>', unsafe_allow_html=True)
             with col2:
-                st.success(f"**Tweet from Person 2:** {mbti_2}")
-            st.markdown('</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="green-opaque-box"><b>Tweet from Person 2:</b> {mbti_2}</div>', unsafe_allow_html=True)
 
             st.markdown("---")
             st.page_link("pages/1_🤝_Compatibility_Results.py", label="See Compatibility →")
