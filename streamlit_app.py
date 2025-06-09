@@ -6,23 +6,33 @@ st.set_page_config(page_title="MBTI Predictor", layout="centered")
 # Inject background image and opaque box style
 st.markdown(
     """
-    <style>
-    .stApp {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-                          url("https://daoinsights.com/wp-content/webp-express/webp-images/uploads/2022/04/mbti-types.png.webp");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center;
-    }
-    .opaque-box {
+<style>
+.stApp {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                      url("https://daoinsights.com/wp-content/webp-express/webp-images/uploads/2022/04/mbti-types.png.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* Make all text black */
+html, body, .stApp, .opaque-box, h1, h2, h3, h4, h5, h6, p, span, div, a, .css-1v0mbdj {
+    color: black !important;
+}
+
+/* Optional: darker link color if needed */
+a {
+    color: #00008B !important;
+}
+
+.opaque-box {
     background-color: rgba(255, 255, 255, 0.85);
-    color: black;
     padding: 1.5rem;
     border-radius: 15px;
     margin-bottom: 1.5rem;
 }
-    </style>
+</style>
     """,
     unsafe_allow_html=True
 )
