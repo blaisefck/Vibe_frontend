@@ -1,6 +1,22 @@
 import streamlit as st
 import requests
 
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                          url("https://cdn.herald.kaist.ac.kr/news/photo/202106/20329_20205_213.jpeg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Page config
 st.set_page_config(page_title="MBTI Predictor", layout="centered")
 st.title("🧠 Project Vibe: MBTI Tweet Classifier")
