@@ -105,15 +105,17 @@ else:
     st.markdown('<div class="opaque-box">', unsafe_allow_html=True)
     compatible = mbti_2 in compatibility_map.get(mbti_1, [])
     # Wrap the subtitle in an opaque-box div for the black background
-    st.markdown('<div class="opaque-box"><h2>🔗 Compatibility Score</h2></div>', unsafe_allow_html=True)
-    if compatible:
-        st.progress(100)
-        st.success("✅ These personalities are **highly compatible**!")
-        st.markdown("They're likely to share complementary traits that support mutual growth and deep understanding.")
-    else:
-        st.progress(30)
-        st.warning("⚠️ These personalities might **clash or require effort**.")
-        st.markdown("While differences can enrich relationships, communication and understanding will be key for alignment.")
+    st.markdown('<div class="opaque-box"><h2> Compatibility Score</h2></div>', unsafe_allow_html=True)
+if compatible:
+    score = 90  # You can customize this score logic
+    st.success(f"✅ Compatibility Score: **{score}%** – Highly compatible!")
+    st.markdown("They're likely to share complementary traits that support mutual growth and deep understanding.")
+else:
+    score = 40
+    st.warning(f"⚠️ Compatibility Score: **{score}%** – Might clash or require effort.")
+    st.markdown("While differences can enrich relationships, communication and understanding will be key for alignment.")
+
+
     st.markdown('</div>', unsafe_allow_html=True)
 
     st.page_link("streamlit_app.py", label="← Try with different tweets", icon="🔁")
